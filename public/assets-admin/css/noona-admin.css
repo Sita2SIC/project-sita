@@ -1,0 +1,56 @@
+/* Penyesuaian tema Volt ke warna Noona Salon (hijau) */
+:root {
+    --hijau: #1F3D31;
+    --sage: #8FAE8B;
+    --mint: #E3EDE2;
+    --krem: #FAF6EF;
+    --emas: #C9A961;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--krem);
+}
+
+h1, h2, h3, .noona-brand {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Sidebar dan navbar mobile */
+.sidebar.noona-sidebar,
+.navbar-theme-primary {
+    background-color: var(--hijau) !important;
+}
+
+.sidebar .nav-item.active > .nav-link {
+    background-color: var(--sage) !important;
+    color: var(--hijau) !important;
+}
+
+/* Tombol utama */
+.btn-primary,
+.btn-success {
+    background-color: var(--hijau);
+    border-color: var(--hijau);
+    color: #fff;
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+    background-color: #2d5645;
+    border-color: #2d5645;
+}
+
+/* Avatar inisial di header (contoh: SN) */
+.avatar-inisial {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--mint);
+    color: var(--hijau);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 600;
+}

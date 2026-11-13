@@ -1,0 +1,126 @@
+/* Style halaman Guest, Auth, dan Pelanggan (Noona Salon by Cortis) */
+:root {
+    --hijau: #1F3D31;
+    --hijau-hover: #2d5645;
+    --sage: #8FAE8B;
+    --mint: #E3EDE2;
+    --krem: #FAF6EF;
+    --emas: #C9A961;
+    --garis: #e6e0d4;
+    --teks-pudar: #6f7d75;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--krem);
+    color: var(--hijau);
+}
+
+h1, h2, h3, h4, .logo-nama {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+}
+
+a { color: var(--hijau); }
+
+/* ---------- Logo ---------- */
+.logo-noona { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+.logo-teks { display: flex; flex-direction: column; line-height: 1.1; }
+.logo-nama { font-size: 1.5rem; color: var(--hijau); }
+.logo-sub { font-size: 0.6rem; letter-spacing: 0.08em; color: var(--teks-pudar); }
+
+/* ---------- Tombol ---------- */
+.btn-noona {
+    background-color: var(--hijau);
+    border: 1px solid var(--hijau);
+    color: #fff;
+    border-radius: 10px;
+    font-weight: 500;
+}
+.btn-noona:hover { background-color: var(--hijau-hover); border-color: var(--hijau-hover); color: #fff; }
+
+.btn-outline-noona {
+    background-color: #fff;
+    border: 1px solid var(--garis);
+    color: var(--hijau);
+    border-radius: 10px;
+    font-weight: 500;
+}
+.btn-outline-noona:hover { border-color: var(--hijau); color: var(--hijau); }
+
+/* ---------- Navbar guest & pelanggan ---------- */
+.navbar-noona { background-color: #fff; border-bottom: 1px solid var(--garis); padding: 0.8rem 0; }
+.navbar-noona .nav-link { color: var(--hijau); font-size: 0.85rem; padding: 0.5rem 1rem; }
+.navbar-noona .nav-link.active { font-weight: 600; }
+
+.ikon-lonceng { position: relative; color: var(--hijau); }
+.ikon-lonceng .titik {
+    position: absolute; top: 0; right: 0;
+    width: 8px; height: 8px; border-radius: 50%;
+    background-color: #D26A5C;
+}
+.avatar-inisial {
+    width: 32px; height: 32px; border-radius: 50%;
+    background-color: var(--mint); color: var(--hijau);
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 0.7rem; font-weight: 600;
+}
+
+/* ---------- Halaman login & registrasi ---------- */
+.auth-kiri { padding: 3rem 4rem 2rem; display: flex; flex-direction: column; min-height: 100vh; }
+.auth-form { width: 100%; max-width: 480px; margin: auto 0; padding: 2rem 0; }
+.auth-form h1 { font-size: 2.6rem; line-height: 1.2; margin-bottom: 0.75rem; }
+.auth-form .sub { color: var(--teks-pudar); font-size: 0.9rem; margin-bottom: 2rem; }
+.auth-form label.form-label { font-size: 0.8rem; font-weight: 600; margin-bottom: 0.35rem; }
+.auth-form .form-control {
+    background: #fff; border: 1px solid var(--garis); border-radius: 10px;
+    padding: 0.7rem 2.6rem 0.7rem 0.9rem; font-size: 0.85rem;
+}
+.input-ikon { position: relative; }
+.input-ikon .ikon {
+    position: absolute; right: 0.9rem; top: 50%; transform: translateY(-50%);
+    color: var(--hijau); cursor: pointer; background: none; border: 0; padding: 0; line-height: 1;
+}
+.auth-garis { border-top: 1px solid var(--garis); margin: 1.5rem 0; }
+.auth-catatan { font-size: 0.75rem; color: var(--teks-pudar); display: flex; gap: 0.6rem; }
+.auth-catatan a { color: var(--teks-pudar); text-decoration: underline; }
+.auth-footer { font-size: 0.72rem; color: var(--teks-pudar); }
+
+.auth-kanan {
+    background-color: var(--hijau); color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    min-height: 100vh; padding: 2rem;
+}
+.auth-bingkai {
+    width: 100%; max-width: 640px; min-height: 800px;
+    border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 120px;
+    padding: 6rem 3rem 3rem; display: flex; flex-direction: column;
+}
+/* Foto interior salon: taruh file di public/images/salon-interior.jpg */
+.auth-foto {
+    height: 290px; border-radius: 18px; margin: 0 auto 3rem; width: 85%;
+    background-color: var(--sage);
+    background-image: url('/images/salon-interior.jpg');
+    background-size: cover; background-position: center;
+}
+.auth-bingkai h2 { font-size: 2.4rem; line-height: 1.25; margin-bottom: 1.5rem; }
+.auth-bingkai p { font-size: 0.9rem; color: rgba(255, 255, 255, 0.85); }
+.auth-label-bawah {
+    margin-top: auto; display: flex; justify-content: space-between;
+    font-size: 0.75rem; color: rgba(255, 255, 255, 0.55);
+}
+
+/* ---------- Footer guest ---------- */
+.footer-noona { background-color: var(--hijau); color: #fff; }
+.footer-noona a { color: #fff; }
+
+/* Form umum */
+.form-control:focus {
+    border-color: var(--sage);
+    box-shadow: 0 0 0 0.2rem rgba(143, 174, 139, 0.35);
+}
+
+@media (max-width: 991px) {
+    .auth-kiri { padding: 2rem 1.5rem; min-height: auto; }
+    .auth-form h1 { font-size: 2rem; }
+}

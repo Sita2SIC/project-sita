@@ -30,19 +30,32 @@ class User extends Authenticatable
         ];
     }
 
-    // Relasi: satu user punya banyak reservasi 
+    // Inisial nama untuk avatar, contoh "Sita Nurya" jadi "SN". Dipanggil dengan $user->inisial
+    public function getInisialAttribute()
+    {
+        $kata = explode(' ', trim($this->nama_lengkap));
+        $inisial = strtoupper(substr($kata[0], 0, 1));
+
+        if (count($kata) > 1) {
+            $inisial .= strtoupper(substr($kata[1], 0, 1));
+        }
+
+        return $inisial;
+    }
+
+    // Relasi: satu user punya banyak reservasi (One-to-Many)
     public function reservasi()
     {
         return $this->hasMany(Reservasi::class, 'id_user', 'id_user');
     }
 
-    // Relasi: satu user punya banyak ulasan 
+    // Relasi: satu user punya banyak ulasan (One-to-Many)
     public function ulasan()
     {
         return $this->hasMany(Ulasan::class, 'id_user', 'id_user');
     }
 
-    // Relasi: satu user punya banyak notifikasi
+    // Relasi: satu user punya banyak notifikasi (One-to-Many)
     public function notifikasi()
     {
         return $this->hasMany(Notifikasi::class, 'id_user', 'id_user');
