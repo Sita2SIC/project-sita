@@ -1,0 +1,64 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
+
+class Layanan extends Model
+{
+    protected $table = 'layanan';
+    protected $primaryKey = 'id_layanan';
+
+    protected $fillable = [
+        'nama_layanan',
+        'kategori',
+        'deskripsi',
+        'harga',
+        'durasi',
+        'foto',
+        'status',
+    ];
+
+    /**
+     * untuk filter data berdasarkan request (dipakai di Kelola Layanan)
+     */
+    public function scopeFilter(Builder $query, $request, array $filterableColumns)
+    {
+        foreach ($filterableColumns as $column) {
+            if ($request->filled($column)) {
+                $query->where($column, $request->input($column));
+            }
+        }
+
+        return $query;
+    }
+
+    /**
+     * untuk pencarian data dengan LIKE
+     */
+    public function scopeSearch($query, $request, array $columns)
+    {
+        if ($request->filled('search')) {
+            $query->where(function ($q) use ($request, $columns) {
+                foreach ($columns as $column) {
+                    $q->orWhere($column, 'LIKE', '%' . $request->search . '%');
+                }
+            });
+        }
+
+        return $query;
+    }
+
+    // untuk mengambil layanan yang berstatus aktif saja
+    public function scopeAktif($query)
+    {
+        return $query->where('status', 'aktif');
+    }
+
+    // Relasi: satu layanan dipesan di banyak reservasi 
+    public function reservasi()
+    {
+        return $this->hasMany(Reservasi::class, 'id_layanan', 'id_layanan');
+    }
+}
