@@ -3,9 +3,13 @@
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    // Notifiable dibutuhkan untuk mengirim email (link reset password)
+    use Notifiable;
+
     protected $table = 'users';
     protected $primaryKey = 'id_user';
 
@@ -30,7 +34,7 @@ class User extends Authenticatable
         ];
     }
 
-    // Inisial nama untuk avatar, contoh "Sita Nurya" jadi "SN". Dipanggil dengan $user->inisial
+    // Inisial nama untuk avatar
     public function getInisialAttribute()
     {
         $kata = explode(' ', trim($this->nama_lengkap));
@@ -43,19 +47,19 @@ class User extends Authenticatable
         return $inisial;
     }
 
-    // Relasi: satu user punya banyak reservasi (One-to-Many)
+    // Relasi: satu user punya banyak reservasi 
     public function reservasi()
     {
         return $this->hasMany(Reservasi::class, 'id_user', 'id_user');
     }
 
-    // Relasi: satu user punya banyak ulasan (One-to-Many)
+    // Relasi: satu user punya banyak ulasan 
     public function ulasan()
     {
         return $this->hasMany(Ulasan::class, 'id_user', 'id_user');
     }
 
-    // Relasi: satu user punya banyak notifikasi (One-to-Many)
+    // Relasi: satu user punya banyak notifikasi 
     public function notifikasi()
     {
         return $this->hasMany(Notifikasi::class, 'id_user', 'id_user');
