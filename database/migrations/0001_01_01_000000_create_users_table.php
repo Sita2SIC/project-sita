@@ -11,12 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
+        // Tabel users (pelanggan dan admin)
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->increments('id_user');
+            $table->string('username', 50)->unique();
             $table->string('password');
+            $table->string('nama_lengkap', 100);
+            $table->string('email')->unique();
+            $table->string('no_hp', 20)->nullable();
+            $table->enum('role', ['admin', 'pelanggan'])->default('pelanggan');
             $table->rememberToken();
             $table->timestamps();
         });
@@ -42,8 +45,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('password_reset_tokens');
+        Schema::dropIfExists('users');
     }
 };
