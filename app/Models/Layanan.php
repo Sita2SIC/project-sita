@@ -56,6 +56,23 @@ class Layanan extends Model
         return $query->where('status', 'aktif');
     }
 
+    // Kalau admin sudah upload foto, pakai foto itu. Kalau belum, pakai foto bawaan sesuai kategori.
+    public function getFotoUrlAttribute()
+    {
+        if ($this->foto) {
+            return asset('storage/' . $this->foto);
+        }
+
+        $bawaan = [
+            'Manicure & Pedicure' => 'layanan-manicure.jpg',
+            'Facial Glow'         => 'layanan-facial.jpg',
+            'Make Up'             => 'layanan-makeup.jpg',
+            'Penataan Rambut'     => 'layanan-rambut.jpg',
+        ];
+
+        return asset('images/' . ($bawaan[$this->kategori] ?? 'layanan-facial.jpg'));
+    }
+
     // Relasi: satu layanan dipesan di banyak reservasi 
     public function reservasi()
     {

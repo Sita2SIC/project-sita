@@ -124,3 +124,67 @@ a { color: var(--hijau); }
     .auth-kiri { padding: 2rem 1.5rem; min-height: auto; }
     .auth-form h1 { font-size: 2rem; }
 }
+
+/* Beranda Guest */
+.hero { padding: 3rem 0 2rem; }
+.eyebrow { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 600; margin-bottom: 1rem; }
+.hero h1 { font-size: 3.2rem; line-height: 1.15; margin-bottom: 1.25rem; }
+.hero .lead-noona { color: var(--teks-pudar); font-size: 0.95rem; max-width: 460px; margin-bottom: 1.75rem; }
+.hero-foto-wrap { position: relative; }
+.hero-foto { width: 100%; height: 480px; object-fit: cover; border-radius: 0 0 0 0; }
+.hero-caption {
+    position: absolute; left: 1.5rem; bottom: 1.5rem; max-width: 300px;
+    background: var(--krem); border-radius: 12px; padding: 0.8rem 1rem; font-size: 0.8rem;
+}
+.hero-caption strong { display: block; font-size: 0.85rem; }
+.hero-rating { font-size: 0.78rem; color: var(--teks-pudar); margin-top: 1.25rem; }
+
+.bagian { padding: 3rem 0; }
+.bagian-judul { font-size: 2.1rem; margin-bottom: 0.4rem; }
+.bagian-sub { color: var(--teks-pudar); font-size: 0.9rem; }
+
+/* Kartu layanan (component x-kartu-layanan) */
+.kartu-layanan { background: #fff; border-radius: 14px; overflow: hidden; border: 1px solid var(--garis); }
+.kartu-foto { width: 100%; height: 180px; object-fit: cover; display: block; }
+.kartu-isi { padding: 1rem 1.1rem 1.2rem; }
+.kartu-kategori { font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teks-pudar); }
+.kartu-judul { font-size: 1.35rem; margin: 0.25rem 0; }
+.kartu-meta { font-size: 0.75rem; color: var(--teks-pudar); margin: 0; }
+.kartu-harga { font-weight: 600; font-size: 0.85rem; }
+
+/* Fitur "Lebih dari perawat" */
+.foto-ruang { width: 100%; border-radius: 14px; object-fit: cover; max-height: 400px; }
+.fitur-item { display: flex; gap: 0.75rem; margin-bottom: 1.1rem; }
+.fitur-ikon { width: 32px; height: 32px; border-radius: 8px; background: var(--mint); flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: var(--hijau); }
+.fitur-item strong { display: block; font-size: 0.9rem; }
+.fitur-item span { font-size: 0.8rem; color: var(--teks-pudar); }
+
+/* Galeri mini di beranda */
+.galeri-mini { width: 100%; height: 280px; object-fit: cover; border-radius: 14px; }
+
+/* Testimoni */
+.testimoni { background: #fff; border: 1px solid var(--garis); border-radius: 14px; padding: 1.25rem; height: 100%; }
+.testimoni p { font-size: 0.85rem; margin: 0.75rem 0 1rem; }
+.testimoni-nama { display: flex; align-items: center; gap: 0.6rem; border-top: 1px solid var(--garis); padding-top: 0.9rem; }
+.testimoni-nama strong { display: block; font-size: 0.78rem; }
+.testimoni-nama small { font-size: 0.68rem; color: var(--teks-pudar); }
+.bintang { letter-spacing: 2px; font-size: 0.85rem; }
+.bintang-penuh { color: var(--emas); }
+.bintang-kosong { color: #d9d4c7; }
+
+/* Banner ajakan reservasi */
+.banner-cta { background: var(--mint); text-align: center; padding: 3.5rem 1rem; }
+.banner-cta h2 { font-size: 2.2rem; }
+
+/* Footer 3 kolom */
+.footer-noona { padding: 3rem 0 1.5rem; margin-top: 0; }
+.footer-noona h6 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.85rem; margin-bottom: 0.9rem; }
+.footer-noona p, .footer-noona li { font-size: 0.8rem; color: rgba(255,255,255,0.85); margin-bottom: 0.3rem; }
+.footer-noona .logo-nama { color: #fff; }
+.footer-noona .logo-sub { color: rgba(255,255,255,0.7); }
+.footer-garis { border-top: 1px solid rgba(255,255,255,0.15); margin-top: 2rem; padding-top: 1.25rem; font-size: 0.72rem; color: rgba(255,255,255,0.7); }
+
+@media (max-width: 991px) {
+    .hero h1 { font-size: 2.3rem; }
+    .hero-foto { height: 320px; }
+}

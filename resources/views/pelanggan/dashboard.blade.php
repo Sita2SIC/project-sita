@@ -7,16 +7,13 @@
 
     {{-- Notifikasi berhasil --}}
     @if (session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
+        <x-alert type="success">{{ session('success') }}</x-alert>
     @endif
 
-    {{-- Banner sambutan (isi lengkap dibuat di Tahap 6) --}}
+    {{-- Banner sambutan --}}
     <div class="p-4 rounded-4" style="background-color: var(--mint);">
         <h1 class="h2">Selamat datang, {{ Auth::user()->nama_lengkap }}.</h1>
-        <p class="mb-0">Hari yang baik dimulai dengan merawat diri. Dashboard lengkap dibuat di Tahap 6.</p>
+        <p class="mb-0">Hari yang baik dimulai dengan merawat diri.</p>
     </div>
 </div>
 @endsection

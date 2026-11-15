@@ -3,11 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BerandaController;
 
-// Halaman utama (Guest)
-Route::get('/', function () {
-    return view('guest.beranda');
-})->name('beranda');
+// Halaman publik (Guest)
+Route::get('/', [BerandaController::class, 'index'])->name('beranda');
 
 // Route login & registrasi (hanya untuk yang belum login)
 Route::middleware('guest')->group(function () {
@@ -17,7 +16,7 @@ Route::middleware('guest')->group(function () {
     Route::get('register', [AuthController::class, 'showRegister'])->name('register');
     Route::post('register', [AuthController::class, 'register'])->name('register.proses');
 
-    // Lupa password
+    // Lupa password (nama route password.* dibutuhkan oleh Laravel untuk email reset)
     Route::get('forgot-password', [AuthController::class, 'showForgotPassword'])->name('password.request');
     Route::post('forgot-password', [AuthController::class, 'sendResetLink'])->name('password.email');
     Route::get('reset-password/{token}', [AuthController::class, 'showResetPassword'])->name('password.reset');

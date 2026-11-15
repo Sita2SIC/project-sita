@@ -21,4 +21,14 @@ class Galeri extends Model
     {
         return $query->where('status', 'tampil');
     }
+
+    // Foto bawaan (data contoh) disimpan di public/images, foto unggahan admin di storage.
+    public function getFotoUrlAttribute()
+    {
+        if (str_starts_with($this->foto, 'images/')) {
+            return asset($this->foto);
+        }
+
+        return asset('storage/' . $this->foto);
+    }
 }
