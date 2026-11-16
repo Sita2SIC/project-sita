@@ -13,6 +13,7 @@
     }
 @endphp
 
+{{-- HERO --}}
 <section class="hero">
     <div class="container">
 
@@ -23,13 +24,13 @@
 
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
-                <p class="eyebrow">Noona Salon by Cortis &middot; Pekanbaru</p>
+                <p class="eyebrow">Noona Salon by Cortis &middot; Jakarta</p>
                 <h1>Saatnya merawat diri, sepenuh hati.</h1>
                 <p class="lead-noona">Temukan jeda yang Anda butuhkan. Perawatan kecantikan personal dalam suasana hangat, tenang, dan penuh perhatian.</p>
 
                 <div class="d-flex gap-2 flex-wrap">
                     <a href="{{ $linkReservasi }}" class="btn btn-noona px-4">Reservasi Sekarang</a>
-                    <a href="#layanan-unggulan" class="btn btn-outline-noona px-4">Jelajahi Layanan</a>
+                    <a href="{{ route('layanan') }}" class="btn btn-outline-noona px-4">Jelajahi Layanan</a>
                 </div>
 
                 {{-- Rating hanya muncul kalau sudah ada ulasan --}}
@@ -62,7 +63,7 @@
                 <h2 class="bagian-judul">Layanan unggulan</h2>
                 <p class="bagian-sub mb-0">Perawatan pilihan untuk versi terbaik diri Anda.</p>
             </div>
-            <a href="#layanan-unggulan" class="btn btn-outline-noona btn-sm px-3">Semua Layanan</a>
+            <a href="{{ route('layanan') }}" class="btn btn-outline-noona btn-sm px-3">Semua Layanan</a>
         </div>
 
         <div class="row g-3">
@@ -110,7 +111,7 @@
     <div class="container">
         <div class="d-flex justify-content-between align-items-end mb-4">
             <h2 class="bagian-judul mb-0">Momen di Noona</h2>
-            <a href="#" class="btn btn-outline-noona btn-sm px-3">Lihat Galeri</a>
+            <a href="{{ route('galeri') }}" class="btn btn-outline-noona btn-sm px-3">Lihat Galeri</a>
         </div>
 
         <div class="row g-3">

@@ -8,11 +8,11 @@
         </button>
 
         <div class="collapse navbar-collapse" id="menuNavbar">
-            {{-- Menu halaman (link diisi di tahap berikutnya) --}}
+            {{-- Menu halaman --}}
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link {{ request()->routeIs('beranda') ? 'active' : '' }}" href="{{ route('beranda') }}">Beranda</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Layanan</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Galeri</a></li>
+                <li class="nav-item"><a class="nav-link {{ request()->routeIs('layanan') ? 'active' : '' }}" href="{{ route('layanan') }}">Layanan</a></li>
+                <li class="nav-item"><a class="nav-link {{ request()->routeIs('galeri') ? 'active' : '' }}" href="{{ route('galeri') }}">Galeri</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Ulasan</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Tentang</a></li>
             </ul>

@@ -15,11 +15,17 @@
             <ul class="nav flex-column pt-3 pt-md-0">
 
                 {{-- Logo --}}
-                <li class="nav-item">
-                    <a href="{{ route('admin.dashboard') }}" class="nav-link d-flex align-items-center">
-                        <span class="mt-1 ms-1 sidebar-text noona-brand fs-4">Noona</span>
+                <li class="nav-item mb-3">
+                    <a href="{{ route('admin.dashboard') }}" class="d-flex align-items-center gap-2 text-white text-decoration-none px-2">
+                        <img src="{{ asset('images/logo-emblem.svg') }}" width="34" height="34" alt="Logo Noona">
+                        <span class="d-flex flex-column lh-1">
+                            <span class="noona-brand fs-4">Noona</span>
+                            <small class="sidebar-sub">Salon by Cortis</small>
+                        </span>
                     </a>
                 </li>
+
+                <li class="sidebar-label">Ruang administrasi</li>
 
                 {{-- Dashboard --}}
                 <li class="nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
@@ -34,7 +40,7 @@
                     </a>
                 </li>
 
-                {{-- Kelola Reservasi (route dibuat di Tahap 8) --}}
+                {{-- Kelola Reservasi --}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <span class="sidebar-icon">
@@ -46,9 +52,9 @@
                     </a>
                 </li>
 
-                {{-- Kelola Layanan (route dibuat di Tahap 4) --}}
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                {{-- Kelola Layanan --}}
+                <li class="nav-item {{ request()->routeIs('admin.layanan.*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.layanan.index') }}" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
@@ -58,9 +64,9 @@
                     </a>
                 </li>
 
-                {{-- Galeri (route dibuat di Tahap 5) --}}
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
+                {{-- Galeri --}}
+                <li class="nav-item {{ request()->routeIs('admin.galeri.*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.galeri.index') }}" class="nav-link">
                         <span class="sidebar-icon">
                             <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path>
@@ -70,7 +76,7 @@
                     </a>
                 </li>
 
-                {{-- Ulasan (route dibuat di Tahap 8) --}}
+                {{-- Ulasan --}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <span class="sidebar-icon">
@@ -82,7 +88,7 @@
                     </a>
                 </li>
 
-                {{-- Pelanggan (route dibuat di Tahap 8) --}}
+                {{-- Pelanggan --}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <span class="sidebar-icon">
@@ -94,7 +100,7 @@
                     </a>
                 </li>
 
-                {{-- Laporan (route dibuat di Tahap 9) --}}
+                {{-- Laporan --}}
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <span class="sidebar-icon">
@@ -105,25 +111,22 @@
                         <span class="sidebar-text">Laporan</span>
                     </a>
                 </li>
-
-                <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
-
-                {{-- Kotak bantuan --}}
-                <li class="nav-item mb-2">
-                    <span class="sidebar-text small d-block">Butuh bantuan?</span>
-                    <a href="#" class="sidebar-text small text-white-50">Hubungi tim dukungan &rarr;</a>
-                </li>
-
-                {{-- Tombol logout --}}
-                <li class="nav-item">
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button type="submit" class="nav-link bg-transparent border-0 w-100 text-start">
-                            <span class="sidebar-text">Keluar</span>
-                        </button>
-                    </form>
-                </li>
             </ul>
+
+            {{-- Bagian bawah sidebar: bantuan dan keluar --}}
+            <div class="sidebar-bawah">
+                <hr class="sidebar-garis">
+                <span class="d-block">Butuh bantuan?</span>
+                <a href="#" class="sidebar-sub">Hubungi tim dukungan &rarr;</a>
+
+                <form action="{{ route('logout') }}" method="POST" class="mt-3">
+                    @csrf
+                    <button type="submit" class="tombol-keluar">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+                        Keluar
+                    </button>
+                </form>
+            </div>
         </div>
     </nav>
 {{-- end sidebar --}}

@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
             CreateAdminUser::class,
             CreateLayananDummy::class,
             CreateGaleriDummy::class,
+            CreateDemoReservasi::class,
         ]);
     }
 }

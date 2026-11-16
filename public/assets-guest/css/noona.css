@@ -188,3 +188,15 @@ a { color: var(--hijau); }
     .hero h1 { font-size: 2.3rem; }
     .hero-foto { height: 320px; }
 }
+
+/* Halaman Layanan (Guest) */
+.cari-wrap { position: relative; }
+.cari-wrap input { padding-left: 2.4rem; background: #fff; border: 1px solid var(--garis); border-radius: 10px; }
+.cari-wrap svg { position: absolute; left: 0.8rem; top: 50%; transform: translateY(-50%); color: var(--teks-pudar); }
+.chip { display: inline-block; padding: 0.35rem 0.95rem; border: 1px solid var(--garis); background: #fff; border-radius: 999px; font-size: 0.75rem; color: var(--hijau); text-decoration: none; }
+.chip.aktif { background: var(--hijau); border-color: var(--hijau); color: #fff; }
+.chip:hover { border-color: var(--hijau); }
+
+/* Halaman Galeri (Guest) */
+.galeri-foto { width: 100%; height: 260px; object-fit: cover; border-radius: 14px; display: block; }
+.galeri-caption { font-size: 0.75rem; margin-top: 0.5rem; }

@@ -27,6 +27,21 @@ class Pembayaran extends Model
         ];
     }
 
+    // Accessor: jumlah uang yang sudah diterima, dipanggil dengan $pembayaran->diterima
+    // Lunas = total tagihan, DP = nominal DP, selain itu belum ada uang masuk
+    public function getDiterimaAttribute()
+    {
+        if ($this->status_pembayaran == 'lunas') {
+            return $this->total_bayar;
+        }
+
+        if ($this->status_pembayaran == 'dp') {
+            return $this->nominal_dp;
+        }
+
+        return 0;
+    }
+
     // Relasi: pembayaran milik satu reservasi
     public function reservasi()
     {
